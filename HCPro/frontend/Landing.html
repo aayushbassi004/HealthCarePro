@@ -1,0 +1,413 @@
+<html>
+ <head>
+  <title>
+   HealthCarePro
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .header .buttons a {
+            color: #000;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .hero {
+            position: relative;
+            background: url('https://placehold.co/1920x600') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .hero .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+            padding: 10px 20px;
+        }
+        .hero .search-bar select,
+        .hero .search-bar input {
+            border: none;
+            background: none;
+            margin: 0 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .hero .search-bar button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .section {
+            padding: 40px 20px;
+        }
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .cards {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            flex: 1;
+            position: relative;
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .card .content {
+            padding: 15px;
+        }
+        .card .content h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .card .content p {
+            font-size: 14px;
+            color: #666;
+        }
+        .card .content .price {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        .card .content .rating {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .card .content .rating i {
+            color: #f39c12;
+            margin-right: 5px;
+        }
+        .card .overlay-text {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .exclusive-deals {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        .exclusive-deals p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .exclusive-deals button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer .links {
+            margin-top: 20px;
+        }
+        .footer .links a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+  </style>
+ </head>
+ <body>
+  <header class="header">
+   <div class="logo">
+    HealthCarePro
+   </div>
+   <nav>
+    <a href="#">
+     Chronic Disease
+    </a>
+    <a href="#">
+     Latest
+    </a>
+    <a href="Statistics.html">
+     Statistics
+    </a>
+   </nav>
+   <div class="buttons">
+    <a href="Discover.html">
+     Explore
+    </a>
+    <a href="Login.html">
+     Sign in
+    </a>
+   </div>
+  </header>
+  <section class="hero">
+   <h1>
+    Empower your healthcare journey with
+   </h1>
+   <p>
+    Discover cutting-edge healthcare insights &amp; statistics!
+   </p>
+   <div class="search-bar">
+    <select>
+     <option>
+      Understanding Conditions
+     </option>
+    </select>
+    <input placeholder="Select Date" type="date"/>
+    <input placeholder="Select Date" type="date"/>
+    <input placeholder="Number of Patients" type="text"/>
+    <button>
+     ➜
+    </button>
+   </div>
+  </section>
+  <section class="section">
+   <h2>
+    Disease Management Insights
+   </h2>
+   <div class="cards">
+    <a href="Diabetes.html">
+     <div class="card">
+      <img alt="Diabetes" height="150" src="https://storage.googleapis.com/a1aa/image/dDhE9EImDfWrKSWmO1Ekk12vb8JYM0zr7DaVsoMwo0ZFHB4JA.jpg" width="200"/>
+      <div class="overlay-text">
+       Diabetes
+      </div>
+     </div> </a>
+    <a href="heart_disease.html">
+     <div class="card">
+      <img alt="Heart Disease" height="150" src="https://storage.googleapis.com/a1aa/image/PX6OG1mMcKJ3CB59DaCK2z7tDlVSabvT7SaPTl3NVIjfGB4JA.jpg" width="200"/>
+      <div class="overlay-text">
+       Heart Disease
+      </div>
+     </div> </a>
+    <a href="obesity.html">
+     <div class="card">
+      <img alt="Obesity" height="150" src="https://storage.googleapis.com/a1aa/image/ERDA6uOJCewNU65qiWkLBP18gthIaNfTgf5wMs3Gck5JcEgnA.jpg" width="200"/>
+      <div class="overlay-text">
+       Obesity
+      </div>
+     </div> </a>
+    <a href="cancer.html">
+     <div class="card">
+      <img alt="Cancer" height="150" src="https://storage.googleapis.com/a1aa/image/LTRmdr29X2qhKdjZZ25eiYGDTeIuVruk2aeZskitadzDcEgnA.jpg" width="200"/>
+      <div class="overlay-text">
+       Cancer
+      </div>
+     </div> </a>
+    <a href="arthritis.html">
+     <div class="card">
+      <img alt="Arthritis" height="150" src="https://storage.googleapis.com/a1aa/image/wTSBqeDR352qUSIEyteQNmzhYlg9lijxhaLfjJWJzGqHcEgnA.jpg" width="200"/>
+      <div class="overlay-text">
+       Arthritis
+      </div>
+     </div> </a>
+    <a href="asthma.html">
+     <div class="card">
+      <img alt="Asthma" height="150" src="https://storage.googleapis.com/a1aa/image/savvne5idFWaZyJr4KKkGbQkuCUpksYo7KeV6kQUfRsMcEgnA.jpg" width="200"/>
+      <div class="overlay-text">
+       Asthma
+      </div>
+     </div> </a>
+   </div>
+  </section>
+  <section class="section">
+   <h2>
+    Patient-Preferred Strategies
+   </h2>
+   <div class="cards">
+    <a href="healthhub_clinic.html">
+     <div class="card">
+      <img alt="HealthHub Clinic" height="150" src="https://storage.googleapis.com/a1aa/image/5ikW7LlBWeUaEiFUV21oedApttVZFDzmt1zv81T475j9NCwTA.jpg" width="200"/>
+      <div class="content">
+       <div class="rating">
+        <i class="fas fa-star">
+        </i>
+        9.6
+       </div>
+       <h3>
+        HealthHub Clinic
+       </h3>
+       <p>
+        New York
+       </p>
+       <p class="price">
+        from $100/session
+       </p>
+      </div>
+     </div> </a>
+    <a href="wellness_haven_center.html">
+     <div class="card">
+      <img alt="Wellness Haven Center" height="150" src="https://storage.googleapis.com/a1aa/image/VUsijWnTscLiG1axCu3FVz6mBV1QDOLgIEQT9DvnyqAijA8E.jpg" width="200"/>
+      <div class="content">
+       <div class="rating">
+        <i class="fas fa-star">
+        </i>
+        9.6
+       </div>
+       <h3>
+        Wellness Haven Center
+       </h3>
+       <p>
+        Los Angeles
+       </p>
+       <p class="price">
+        from $120/session
+       </p>
+      </div>
+     </div> </a>
+    <a href="mindful_living_clinic.html">
+     <div class="card">
+      <img alt="Mindful Living Clinic" height="150" src="https://storage.googleapis.com/a1aa/image/Hrcu60RP6OLFDNACJ6l9VYQ06VkjHml9lnq8REVgC9hgjA8E.jpg" width="200"/>
+      <div class="content">
+       <div class="rating">
+        <i class="fas fa-star">
+        </i>
+        8.8
+       </div>
+       <h3>
+        Mindful Living Clinic
+       </h3>
+       <p>
+        Chicago
+       </p>
+       <p class="price">
+        from $150/session
+       </p>
+      </div>
+     </div> </a>
+    <a href="harmony_wellness_center.html">
+     <div class="card">
+      <img alt="Harmony Wellness Center" height="150" src="https://storage.googleapis.com/a1aa/image/PviQCVZasoJHBR8deBDGRyFWd2HcHZYYJhYneNRfXbiAcEgnA.jpg" width="200"/>
+      <div class="content">
+       <div class="rating">
+        <i class="fas fa-star">
+        </i>
+        9.5
+       </div>
+       <h3>
+        Harmony Wellness Center
+       </h3>
+       <p>
+        Miami
+       </p>
+       <p class="price">
+        from $110/session
+       </p>
+      </div>
+     </div> </a>
+    <a href="revive_health_clinic.html">
+     <div class="card">
+      <img alt="Revive Health Clinic" height="150" src="https://storage.googleapis.com/a1aa/image/8AkY1a1XQbajOFA3qOSTqfd1ypDT3vo2jE4NqGKl4X5EHB4JA.jpg" width="200"/>
+      <div class="content">
+       <div class="rating">
+        <i class="fas fa-star">
+        </i>
+        9.5
+       </div>
+       <h3>
+        Revive Health Clinic
+       </h3>
+       <p>
+        San Francisco
+       </p>
+       <p class="price">
+        from $90/session
+       </p>
+      </div>
+     </div> </a>
+   </div>
+  </section>
+  <section class="exclusive-deals">
+   <p>
+    Exclusive Deals! Stay updated with the latest healthcare advancements &amp; exclusive offers. Join our Health Club now!
+   </p>
+   <button>
+    Join Now
+   </button>
+  </section>
+  <footer class="footer">
+   <p>
+    HealthCarePro
+   </p>
+   <p>
+    Transforming Healthcare Since 1991
+   </p>
+   <p>
+    HealthCarePro ©
+   </p>
+   <div class="links">
+    <a href="#">
+     Knowledge Base
+    </a>
+    <a href="#">
+     Patient Care Team
+    </a>
+    <a href="#">
+     Expert Advice
+    </a>
+    <a href="#">
+     Get in Touch
+    </a>
+   </div>
+  </footer>
+ </body>
+</html>

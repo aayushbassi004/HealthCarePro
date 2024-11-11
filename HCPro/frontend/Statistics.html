@@ -1,0 +1,628 @@
+<html>
+ <head>
+  <title>
+   HealthCarePro
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #e0e0e0;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+        }
+        .sidebar h1 {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+        .sidebar a {
+            display: block;
+            color: #000;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .sidebar a i {
+            margin-right: 10px;
+        }
+        .sidebar .track-button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .sidebar .settings, .sidebar .logout {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .sidebar .settings i, .sidebar .logout i {
+            margin-right: 10px;
+        }
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+            width: calc(100% - 270px);
+        }
+        .breadcrumb {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .patient-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .patient-info img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+        }
+        .patient-info .details {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+        .patient-info .details h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .patient-info .details p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+        .patient-info .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .patient-info .tags span {
+            background-color: #000;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .patient-info .extra-info {
+            text-align: right;
+        }
+        .patient-info .extra-info p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+        .weekly-overview, .progress, .activity, .meals, .steps, .workouts {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .weekly-overview table, .progress table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .weekly-overview table th, .weekly-overview table td, .progress table th, .progress table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .weekly-overview table th {
+            background-color: #000;
+            color: #fff;
+        }
+        .progress .chart {
+            height: 200px;
+            background-color: #000;
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        .progress .chart div {
+            width: 10%;
+            background-color: #fff;
+        }
+        .activity, .meals, .steps, .workouts {
+            display: flex;
+            justify-content: space-between;
+        }
+        .activity div, .meals div, .steps div, .workouts div {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            flex-grow: 1;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
+        }
+        .workouts .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .workouts .tags span {
+            background-color: #000;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            .patient-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .patient-info .extra-info {
+                text-align: left;
+                margin-top: 20px;
+            }
+            .activity, .meals, .steps, .workouts {
+                flex-direction: column;
+            }
+            .activity div, .meals div, .steps div, .workouts div {
+                margin: 10px 0;
+            }
+        }
+        .progress {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .progress h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .progress .stats {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .progress .stats div {
+            text-align: center;
+            flex-grow: 1;
+        }
+        .progress .stats div:not(:last-child) {
+            border-right: 1px solid #ddd;
+        }
+        .progress .chart {
+            height: 200px;
+            background-color: #000;
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        .progress .chart div {
+            width: 10%;
+            background-color: #fff;
+        }
+        .progress .tabs {
+            display: flex;
+            justify-content: space-around;
+            background-color: #000;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .progress .tabs div {
+            color: #fff;
+            cursor: pointer;
+        }
+        .progress .tabs .active {
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="sidebar">
+   <h1>
+    HealthCarePro
+   </h1>
+   <a href="#">
+    <i class="fas fa-th-large">
+    </i>
+    Dashboard
+   </a>
+   <a href="#">
+    <i class="fas fa-file-alt">
+    </i>
+    Reports
+   </a>
+   <a href="#">
+    <i class="fas fa-clipboard-list">
+    </i>
+    Plans
+   </a>
+   <a href="#">
+    <i class="fas fa-bell">
+    </i>
+    Reminders
+   </a>
+   <div class="track-button">
+    Track
+   </div>
+   <div class="settings">
+    <i class="fas fa-cog">
+    </i>
+    Settings
+   </div>
+   <div class="logout">
+    <i class="fas fa-sign-out-alt">
+    </i>
+    Log out
+   </div>
+  </div>
+  <div class="main-content">
+   <div class="breadcrumb">
+    Home / Report
+   </div>
+   <div class="card patient-info">
+    <img alt="Patient profile picture" height="80" src="https://storage.googleapis.com/a1aa/image/HQ5iaVngKVaiJ9vcwESQfBSrMfKrO9q4kDlBT9fccbChPDgnA.jpg" width="80"/>
+    <div class="details">
+     <h2>
+      Patient Information
+     </h2>
+     <p>
+      Gender: Female, Age: 29
+     </p>
+     <div class="tags">
+      <span>
+       Weight Loss
+      </span>
+      <span>
+       Vegetarian
+      </span>
+      <span>
+       Active
+      </span>
+      <span>
+       Anxiety
+      </span>
+      <span>
+       Health
+      </span>
+      <span>
+       Fitness
+      </span>
+     </div>
+    </div>
+    <div class="extra-info">
+     <p>
+      Date of birth: 08 Sep 1991
+     </p>
+     <p>
+      Age: 32
+     </p>
+     <p>
+      Gender: F
+     </p>
+     <p>
+      Blood: O-
+     </p>
+    </div>
+   </div>
+   <div class="card weekly-overview">
+    <h2>
+     Weekly Overview
+    </h2>
+    <table>
+     <thead>
+      <tr>
+       <th>
+        Day
+       </th>
+       <th>
+        Mon
+       </th>
+       <th>
+        Tue
+       </th>
+       <th>
+        Wed
+       </th>
+       <th>
+        Thu
+       </th>
+       <th>
+        Fri
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td>
+        Weight
+       </td>
+       <td>
+        62 kg
+       </td>
+       <td>
+        62.1 kg
+       </td>
+       <td>
+        62.2 kg
+       </td>
+       <td>
+        60.9 kg
+       </td>
+       <td>
+        61.5 kg
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Food Intake
+       </td>
+       <td>
+        3 meals
+       </td>
+       <td>
+        4 meals
+       </td>
+       <td>
+        5 meals
+       </td>
+       <td>
+        4 meals
+       </td>
+       <td>
+        3 meals
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Water Intake
+       </td>
+       <td>
+        2l
+       </td>
+       <td>
+        1.5l
+       </td>
+       <td>
+        2.5l
+       </td>
+       <td>
+        Thu
+       </td>
+       <td>
+        Fri
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Steps
+       </td>
+       <td>
+        4,309
+       </td>
+       <td>
+        5,520
+       </td>
+       <td>
+        10,904
+       </td>
+       <td>
+        6,500
+       </td>
+       <td>
+        10
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Activity
+       </td>
+       <td>
+        30 min.
+       </td>
+       <td>
+        50 min.
+       </td>
+       <td>
+        2h 30m
+       </td>
+       <td>
+        1h 20m
+       </td>
+       <td>
+        10 min.
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Calories
+       </td>
+       <td>
+        472 kcal
+       </td>
+       <td>
+        615 kcal
+       </td>
+       <td>
+        1,024 kcal
+       </td>
+       <td>
+        809 kcal
+       </td>
+       <td>
+        15 kcal
+       </td>
+      </tr>
+      <tr>
+       <td>
+        Mood
+       </td>
+       <td>
+        😊
+       </td>
+       <td>
+        😊
+       </td>
+       <td>
+        😊
+       </td>
+       <td>
+        😊
+       </td>
+       <td>
+        😊
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+   <div class="card progress">
+    <h2>
+     Your progress
+    </h2>
+    <div class="stats">
+     <div>
+      <p>
+       Current weight
+      </p>
+      <p>
+       62 kg
+      </p>
+     </div>
+     <div>
+      <p>
+       Desired weight
+      </p>
+      <p>
+       58 kg
+      </p>
+     </div>
+     <div>
+      <p>
+       Current weight loss
+      </p>
+      <p>
+       -3.4%
+      </p>
+     </div>
+     <div>
+      <p>
+       Desired BMI
+      </p>
+      <p>
+       40%
+      </p>
+     </div>
+    </div>
+    <div class="tabs">
+     <div class="active">
+      Daily
+     </div>
+     <div>
+      Weekly
+     </div>
+     <div>
+      Monthly
+     </div>
+     <div>
+      Yearly
+     </div>
+    </div>
+    <div class="chart">
+     <div style="height: 64%;">
+     </div>
+     <div style="height: 63%;">
+     </div>
+     <div style="height: 62%;">
+     </div>
+     <div style="height: 61%;">
+     </div>
+     <div style="height: 60%;">
+     </div>
+     <div style="height: 61%;">
+     </div>
+     <div style="height: 62%;">
+     </div>
+     <div style="height: 63%;">
+     </div>
+     <div style="height: 64%;">
+     </div>
+     <div style="height: 65%;">
+     </div>
+    </div>
+   </div>
+   <div class="activity">
+    <div>
+     <h3>
+      Activity
+     </h3>
+     <p>
+      OK
+     </p>
+    </div>
+    <div>
+     <h3>
+      Meals
+     </h3>
+     <p>
+      Below average
+     </p>
+    </div>
+    <div>
+     <h3>
+      Steps
+     </h3>
+     <p>
+      Above average
+     </p>
+    </div>
+   </div>
+   <div class="workouts">
+    <h2>
+     Planned workouts
+    </h2>
+    <div class="tags">
+     <span>
+      Belly
+     </span>
+     <span>
+      HIIT
+     </span>
+     <span>
+      Warmup
+     </span>
+     <span>
+      Arms
+     </span>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

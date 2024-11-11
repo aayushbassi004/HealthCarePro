@@ -1,0 +1,189 @@
+<html>
+ <head>
+  <title>
+   HealthCarePro - Register
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        .navbar {
+            background-color: #000000;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+        .navbar .right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .right a {
+            margin-left: 20px;
+        }
+        .navbar .right .signup {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+        .register-form {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 40px;
+            border-radius: 10px;
+            width: 400px;
+        }
+        .register-form h2 {
+            margin-top: 0;
+        }
+        .register-form p {
+            margin: 10px 0 20px;
+        }
+        .register-form input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+        .register-form button {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .register-form .login-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #000000;
+            text-decoration: none;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #000000;
+        }
+        .footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer .left, .footer .right {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer .right a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="navbar">
+   <div class="left">
+    <a href="#">
+     HealthCarePro
+    </a>
+    <a href="#">
+     Home
+    </a>
+    <a href="#">
+     Chronic
+    </a>
+    <a href="#">
+     Management
+    </a>
+    <a href="#">
+     Latest
+    </a>
+   </div>
+   <div class="right">
+    <a class="signup" href="#">
+     Sign up
+    </a>
+   </div>
+  </div>
+  <div class="container">
+   <div class="register-form">
+    <h2>
+     Register
+    </h2>
+    <p>
+     Join us to explore the future of healthcare.
+    </p>
+    <label for="fullname">
+     Full Name
+    </label>
+    <input id="fullname" name="fullname" placeholder="Full Name" type="text"/>
+    <label for="email">
+     Email
+    </label>
+    <input id="email" name="email" placeholder="Your Email" type="email"/>
+    <label for="password">
+     Password
+    </label>
+    <input id="password" name="password" placeholder="Password" type="password"/>
+    <label for="confirm-password">
+     Confirm Password
+    </label>
+    <input id="confirm-password" name="confirm-password" placeholder="Confirm Password" type="password"/>
+    <button type="submit">
+     Register
+    </button>
+    <a class="login-link" href="Login.html">
+     Already have an account? Login here
+    </a>
+   </div>
+  </div>
+  <div class="footer">
+   <div class="left">
+    <p>
+     HealthCarePro
+    </p>
+    <p>
+     Transforming Healthcare Since 1987
+    </p>
+   </div>
+   <div class="right">
+    <a href="#">
+     Support
+    </a>
+    <a href="#">
+     Knowledge Base
+    </a>
+    <a href="#">
+     Patient Care Team
+    </a>
+    <a href="#">
+     Expert Advice
+    </a>
+    <a href="#">
+     Get in Touch
+    </a>
+   </div>
+  </div>
+ </body>
+</html>
